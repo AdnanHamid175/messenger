@@ -38,8 +38,8 @@ app.use("/api/message", messageRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
-const localIP = "192.168.1.14";
-// const localIP = "localhost";
+// const localIP = "192.168.1.14";
+const localIP = "localhost";
 const port = process.env.PORT || 5000;
 
 app.listen(port, localIP, () => {

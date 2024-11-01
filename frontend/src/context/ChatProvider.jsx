@@ -4,8 +4,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 
 const ChatContext = createContext();
 
-const ChatProvider = () => {
-  const navigate = useNavigate();
+const ChatProvider = ({ children }) => {
   const [user, setUser] = useState();
 
   useEffect(() => {
@@ -13,13 +12,13 @@ const ChatProvider = () => {
     setUser(userInfo);
 
     if (!userInfo) {
-      navigate("/");
+      window.location.href("/");
     }
   }, []);
 
   return (
     <ChatContext.Provider value={{ user, setUser }}>
-      <Outlet />
+      {children}
     </ChatContext.Provider>
   );
 };
